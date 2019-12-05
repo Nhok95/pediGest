@@ -16,11 +16,23 @@ export class ListadoProductoComponent implements OnInit {
 
   productos:Producto[] = [];
 
+  cols: any[];
+
   constructor(private productoService: ProductoService, private router: Router) { }
 
   ngOnInit() {
     //this.productos = [];
     this.onLoad();
+
+    this.cols = [
+      { field: 'codigo', header: 'Código' },
+      { field: 'nombre', header: 'Nombre' },
+      { field: 'precio', header: 'Precio' },
+      { field: 'descripcion', header: 'Descripción' },
+      { field: 'fechaAlta', header: 'Fecha Alta' },
+      { field: 'descatalogado', header: 'Descatalogado' },
+      { field: 'categoria', header: 'Categoria' }
+    ];
   }
 
   onLoad() {

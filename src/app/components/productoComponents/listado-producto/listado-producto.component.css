@@ -1,3 +1,52 @@
 .red {
     color:red;
 }
+
+
+th {
+    width:150px !important;
+}
+
+th:first-child{
+    width: 70px !important;
+}
+
+th:nth-child(3), th:nth-child(5){
+    width: 100px !important;
+}
+
+
+td {
+    width:150px !important;
+}
+
+td:first-child {
+    width: 70px !important;
+}
+
+td:nth-child(3), td:nth-child(5){
+    width: 100px !important;
+}
+
+:host >>> ::-webkit-scrollbar {
+    width: 0px !important;
+}
+
+
+
+@media screen and (max-width: 500px) {
+    div {
+        margin-right: 15px;
+    }
+
+    :host >>> .ui-table-scrollable-body {
+        overflow: auto;
+        margin-right: -17px;
+        position: relative;
+    }
+    :host >>> .ui-table-scrollable-header {
+        overflow: hidden;
+        margin-right: -17px;
+        position: relative;
+    }
+}
