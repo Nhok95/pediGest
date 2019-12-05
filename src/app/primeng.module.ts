@@ -9,7 +9,7 @@ import { InputTextModule }          from 'primeng/inputtext';
 import { CheckboxModule }           from 'primeng/checkbox';
 import { SpinnerModule }            from 'primeng/spinner';
 import { TableModule }              from 'primeng/table';
-import { MenuModule }               from 'primeng/menu';
+import { SlideMenuModule }          from 'primeng/slidemenu';
 import { MenubarModule }            from 'primeng/menubar';
 
 
@@ -25,7 +25,7 @@ import { MenubarModule }            from 'primeng/menubar';
     CheckboxModule,
     SpinnerModule,
     TableModule,
-    MenuModule,
+    SlideMenuModule,
     MenubarModule
   ],
   exports: [
@@ -37,7 +37,7 @@ import { MenubarModule }            from 'primeng/menubar';
     CheckboxModule,
     SpinnerModule,
     TableModule,
-    MenuModule,
+    SlideMenuModule,
     MenubarModule
   ]
 })

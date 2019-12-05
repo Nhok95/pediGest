@@ -25,8 +25,9 @@
   </ul>
 </nav>-->
 
-<p-menu #menu [popup]="true" [model]="items"></p-menu>
-<button type="button" pButton icon="pi pi-bars" label="Show" (click)="menu.toggle($event)"></button>
+
+<button #btn type="button" pButton icon="pi pi-bars" label="Menu" (click)="menu.toggle($event)"></button>
+<p-slideMenu #menu [model]="items" [popup]="true" [viewportHeight]="200"  [menuWidth]="170"></p-slideMenu>
 
 <!--<p-menubar [model]="items">
   <button pButton label="About_Us" icon='pi pi-user' style="margin-left:.25em"> <a routerLink='About_Us'></a> </button>
