@@ -29,7 +29,8 @@
     </div>
 
     <div class="ui-g-12 ui-md-6 ui-lg-6">
-        <p-dropdown [options]="categorias" [(ngModel)]="producto.categoria" placeholder="Selecciona una categoria" optionLabel="value"></p-dropdown>
+        <p-dropdown [options]="categorias" [(ngModel)]="selectedP" placeholder="Selecciona una categoria" optionLabel="categoria"></p-dropdown>
+        <p-dropdown [options]="cars" [(ngModel)]="selected" placeholder="Selecciona una categoria" optionLabel="empresa"></p-dropdown>
     </div>
   </div>
 </div>
