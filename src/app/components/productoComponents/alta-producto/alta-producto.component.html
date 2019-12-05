@@ -1,15 +1,46 @@
 <h2>Añadir Producto</h2>
 
-<span class="ui-float-label">
-  <input id="float-input" type="text" size="25%" pInputText> 
-  <label for="float-input">Nombre</label>
-</span>
+<div class="ui-fluid">
+  <div class="ui-g">
 
-<!--nombre: <input [(ngModel)]="producto.nombre" placeholder="nombre del producto" type="text"><br>
+    <div class="ui-g-12 ui-md-6 ui-lg-6">
+      <span class="ui-float-label">
+        <input [(ngModel)]="producto.nombre" id="float-input" type="text" pInputText> 
+        <label for="float-input">Nombre del producto</label>
+      </span><br>
+          
+      <span class="ui-float-label">
+        <p-spinner [(ngModel)]="producto.precio" id="float-spinner" [min]="0" [step]="0.5"></p-spinner>
+        <label for="float-spinner">Precio del producto</label>
+      </span><br>
+        
+      <span class="ui-float-label">
+        <input [(ngModel)]="producto.descripcion" id="float-input" type="text" pInputText> 
+        <label for="float-input">Descripcion del producto</label>
+      </span>
+    </div>
+
+    <div class="ui-g-6 ui-md-3 ui-lg-3">
+      <span class="ui-float-label">
+        <p-calendar [(ngModel)]="producto.fechaAlta" id="float-calendar" readonlyInput= "false" dateFormat="dd/mm/yy"></p-calendar>
+        <label for="float-calendar">Seleccione fecha</label>
+      </span> <br>
+      Descatalogado: <p-checkbox [(ngModel)]="producto.descatalogado" binary="true"></p-checkbox>
+    </div>
+
+    <div class="ui-g-12 ui-md-6 ui-lg-6">
+        <p-dropdown [options]="categorias" [(ngModel)]="producto.categoria" placeholder="Selecciona una categoria" optionLabel="value"></p-dropdown>
+    </div>
+  </div>
+</div>
+
+<!--
+  nombre: <input [(ngModel)]="producto.nombre" placeholder="nombre del producto" type="text"><br>
 precio: <input [(ngModel)]="producto.precio" placeholder="0.5" type="number" min="0" step="0.5"><br>
 descripcion: <input [(ngModel)]="producto.descripcion" placeholder="descripción del producto" type="text"><br>
 fecha alta: <input [(ngModel)]="producto.fechaAlta" type="date"><br>
 descatalogado: <input [(ngModel)]="producto.descatalogado" type="checkbox"><br>
+
 categoria: <select [(ngModel)]="producto.categoria">
   <option *ngFor="let categoria of categorias">{{categoria}}</option>
 </select>

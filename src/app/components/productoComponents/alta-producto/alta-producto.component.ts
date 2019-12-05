@@ -13,7 +13,7 @@ import { ProductoService } from 'src/app/services/producto.service';
   styleUrls: ['./alta-producto.component.css']
 })
 export class AltaProductoComponent implements OnInit {
-  categorias:String[] = undefined;
+  categorias:String[] = [];
 
   producto:Producto = new Producto();
   constructor(private categoriaService: CategoriaService,
