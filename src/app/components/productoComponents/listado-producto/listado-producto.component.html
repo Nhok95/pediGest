@@ -55,9 +55,12 @@
     </ng-template>
 </p-table>-->
 
-<h2 class="first">Listado productos</h2>
+<br>
 <div style="text-align: center;">
     <p-table [columns]="cols" [value]="productos" [scrollable]="true" [style]="{'width':'100%'}" scrollHeight="500px">
+        <ng-template pTemplate="caption">
+            Listado productos
+        </ng-template>
         <ng-template pTemplate="colgroup" let-columns>
             <colgroup>
                 <col *ngFor="let col of columns" >

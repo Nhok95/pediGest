@@ -33,6 +33,7 @@ export class AppComponent implements OnInit {
           {label: 'Listado Pedidos', routerLink: 'Listado_Pedidos'}
         ]
       },
+      {separator:true},
       { label: 'AboutUs', routerLink: 'About_Us'}
     ];
   }

@@ -15,7 +15,8 @@ import { CategoriaService } from 'src/app/services/categoria.service';
 })
 export class EditProductoComponent implements OnInit {
 
-  categorias:String[] = undefined;
+  categorias:any[] = undefined;
+  selectedCategoria:any = undefined;
 
   editedProducto:Producto = new Producto();
 
@@ -27,15 +28,20 @@ export class EditProductoComponent implements OnInit {
   ngOnInit() {
 
     this.categoriaService.getCategorias().subscribe(datos => {
-      this.categorias = datos;
+      this.categorias = [];
+      for (let d of datos) {
+        this.categorias.push({categoria: String(d)})
+      }
     });
 
     this.route.params.subscribe(x => {
       this.productoService.getByID(Number(x.codigo)).subscribe(d => {
-        console.log(this.formatDate(d.fechaAlta));
-        this.editedProducto = new Producto(Number(d.codigo), d.nombre, d.precio, d.descripcion, this.formatDate(d.fechaAlta), Boolean(d.descatalogado), d.categoria)
+        console.log(new Date(d.fechaAlta));
+        //console.log(this.formatDate(d.fechaAlta));
+        //console.log(this.formatDate(new Date(d.fechaAlta)));
+        this.editedProducto = new Producto(d.codigo, d.nombre, d.precio, d.descripcion, new Date(d.fechaAlta), d.descatalogado, d.categoria);
+        this.selectedCategoria = {categoria: d.categoria};
       });
-      
     }); 
   }
 
@@ -47,7 +53,7 @@ export class EditProductoComponent implements OnInit {
    
   }
 
-  formatDate(date) {
+  /*formatDate(date) {
     let d = new Date(date),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
@@ -58,7 +64,7 @@ export class EditProductoComponent implements OnInit {
     if (day.length < 2) 
         day = '0' + day;
 
-    return [year, month, day].join('-');
-}
+    return [day, month, year].join('-');
+  }*/
 
 }

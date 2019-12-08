@@ -1,0 +1,15 @@
+
+
+.phone-header{
+    display: none;
+    
+}
+
+@media screen and (max-width: 500px) {
+    .pc{
+        display: none;
+    }
+    .phone-header{
+        display: inline;
+    }
+}

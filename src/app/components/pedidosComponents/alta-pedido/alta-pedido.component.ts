@@ -20,13 +20,14 @@ import { Producto } from 'src/app/model/producto';
 })
 export class AltaPedidoComponent implements OnInit {
 
-  camareros:Camarero[] = [];
-  productos:Producto[] = [];
+  camareros:Camarero[] = undefined;
+  productos:Producto[] = undefined;
+  cols: any[];
 
   pedido:Pedido = new Pedido();
 
   myLineaPedido:LineaPedido = new LineaPedido();
-  misLineas:LineaPedido[] = [];
+  misLineas:LineaPedido[] = undefined;
   
 
   constructor(private camareroService: CamareroService,
@@ -35,23 +36,30 @@ export class AltaPedidoComponent implements OnInit {
 
   ngOnInit() {
     this.camareroService.getAll().subscribe(datos => {
+      this.camareros = [];
       for (let d of datos) {
         this.camareros.push(new Camarero(d.codigo, d.nombre));
       }
       this.pedido.camarero = this.camareros[0];
     });
+
+    this.cols = [
+      { field: 'producto', header: 'Producto' },
+      { field: 'cantidad', header: 'Cantidad' },
+      { field: '', header: 'Remove'}
+    ];
     
     this.pedido.lineasPedido = [];
     this.pedido.fecha = new Date();
-    this.myLineaPedido.cantidad = 1;
 
     this.productoService.getAll().subscribe(datos => {
+      this.productos = [];
       for (let d of datos) {
         this.productos.push(new Producto(d.codigo, d.nombre, d.precio, d.descripcion, d.fechaAlta, d.descatalogado, d.categoria));
       }
-      this.myLineaPedido.producto = this.productos[0];
     });
-    
+
+    this.misLineas = [];
   }
 
   addLinea() {
@@ -60,8 +68,6 @@ export class AltaPedidoComponent implements OnInit {
     this.misLineas.push(this.myLineaPedido);
 
     this.myLineaPedido = new LineaPedido();
-    this.myLineaPedido.cantidad = 1;
-    this.myLineaPedido.producto = this.productos[0];
   }
 
   removeLinea(linea:LineaPedido){

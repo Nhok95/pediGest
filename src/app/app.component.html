@@ -1,36 +1,19 @@
 
-<!--<nav>
-  <ul>
-    <li>
-      <a routerLink='Alta_Camarero'> Alta Camarero</a>
-    </li>
-    <li>
-      <a routerLink='Listado_Camareros'> Listado Camareros</a>
-    </li>
-    <li>
-      <a routerLink='Alta_Producto'> Alta Producto</a>
-    </li>
-    <li>
-      <a routerLink='Listado_Productos'> Listado Productos</a>
-    </li>
-    <li>
-      <a routerLink='Alta_Pedido'> Alta Pedido</a>
-    </li>
-    <li>
-      <a routerLink='Listado_Pedidos'> Listado Pedidos</a>
-    </li>
-    <li>
-      <a routerLink='About_Us'> About Us</a>
-    </li>
-  </ul>
-</nav>-->
+
+<div class="phone-header">
+    <button #btn type="button" pButton icon="pi pi-bars" label="Menu" (click)="menu.toggle($event)"></button>
+    <p-slideMenu #menu [model]="items" [popup]="true" [viewportHeight]="210"  [menuWidth]="170"></p-slideMenu>
+</div>
+
+<div class="ui-fluid pc">
+  <p-menubar class=ui-menu-list [model]="items"></p-menubar>
+</div>
+
+<div class="ui-fluid">
+  <div class="marginComponent">
+      <router-outlet></router-outlet>
+  </div>
+</div>
 
 
-<button #btn type="button" pButton icon="pi pi-bars" label="Menu" (click)="menu.toggle($event)"></button>
-<p-slideMenu #menu [model]="items" [popup]="true" [viewportHeight]="200"  [menuWidth]="170"></p-slideMenu>
 
-<!--<p-menubar [model]="items">
-  <button pButton label="About_Us" icon='pi pi-user' style="margin-left:.25em"> <a routerLink='About_Us'></a> </button>
-</p-menubar>-->
-
-<router-outlet></router-outlet>

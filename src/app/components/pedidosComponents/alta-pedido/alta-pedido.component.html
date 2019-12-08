@@ -1,5 +1,68 @@
 <h2>Añadir Pedido</h2>
 
+<div class="ui-fluid">
+    <div class="ui-g">
+        <div class="ui-g-12 ui-md-6 ui-lg-12">
+
+            <div class="ui-g-12 ui-md-6 ui-lg-6">
+                <p-dropdown *ngIf="camareros" [options]="camareros" optionLabel="nombre"
+                    [(ngModel)]="pedido.camarero" placeholder="Selecciona un camarero" ></p-dropdown> 
+                <br>
+            </div>
+
+            <div class="ui-g-12 ui-md-3 ui-lg-6">
+                <span class="ui-float-label">
+                    <p-spinner [(ngModel)]="pedido.mesa" id="float-spinner" [min]="1" [step]="1"></p-spinner>
+                    <label for="float-spinner">Nº mesa</label>
+                </span>
+            </div>
+
+            <div class="ui-g-12 ui-md-3 ui-lg-6">
+                <h4 class="first">Nueva Linea</h4>
+                <p-dropdown *ngIf="productos" [options]="productos" optionLabel="nombre" 
+                [(ngModel)]="myLineaPedido.producto" placeholder="Selecciona un producto"></p-dropdown> <br><br>
+                
+                <span class="ui-float-label">
+                    <p-spinner [(ngModel)]="myLineaPedido.cantidad" id="float-spinner" [min]="1" [step]="1"></p-spinner> 
+                    <label for="float-spinner">Cantidad</label>
+                </span><br>
+
+                <p-button label="Add" (click)="addLinea()"></p-button> <br><br>   
+            </div>
+            
+            <div class="ui-g-12 ui-md-3 ui-lg-12" style="text-align: center">
+                <p-table [columns]="cols" [value]="misLineas" [scrollable]="true" [style]="{'width':'100%'}" scrollHeight="500px">
+                    <ng-template pTemplate="caption">
+                        Linea de Pedido
+                    </ng-template>
+                    <ng-template pTemplate="colgroup" let-columns>
+                        <colgroup>
+                            <col *ngFor="let col of columns" >
+                        </colgroup>
+                     </ng-template>
+                    <ng-template pTemplate="header" let-columns >
+                        <tr>
+                            <th *ngFor="let col of columns" >
+                                {{col.header}}
+                            </th>
+                         </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-linea>
+                        <tr >
+                            <td>{{linea.producto.nombre}}</td>
+                            <td>{{linea.cantidad}}</td>
+                            <td><p-button label="Remove" styleClass="ui-button-danger" (click)="removeLinea(linea)"></p-button></td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+
+            </div>
+
+        </div> 
+    </div>            
+</div>
+
+<!--
 camarero: 
 <select [(ngModel)]="pedido.camarero" name="camareros" >
     <option *ngFor="let cams of camareros" [ngValue]="cams" >{{cams.nombre}}</option>
@@ -7,6 +70,8 @@ camarero:
 
 mesa: 
 <input [(ngModel)]="pedido.mesa" type="number" min="0" placeholder="1"><br>
+
+
 
 <h3>lineaPedido:</h3>
 <table>
@@ -40,3 +105,5 @@ mesa:
 </table>
 <br><hr>
 <button (click)="addPedido()"> Add pedido </button>
+-->
+

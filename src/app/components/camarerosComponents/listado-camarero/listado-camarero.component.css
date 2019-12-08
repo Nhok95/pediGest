@@ -3,8 +3,14 @@ td:first-child {width: 70px !important;}
 
 :host >>> ::-webkit-scrollbar {width: 0px !important;}
 
+
 @media screen and (max-width: 500px) {
     div {margin-right: 15px;}
+
+    :host >>> .ui-table-caption {
+        border-bottom: 0 none;
+        margin-right: -17px;
+    }
 
     :host >>> .ui-table-scrollable-body {
         overflow: auto;

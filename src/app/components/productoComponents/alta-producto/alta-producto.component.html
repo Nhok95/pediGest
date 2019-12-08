@@ -7,7 +7,7 @@
       <span class="ui-float-label">
         <input [(ngModel)]="producto.nombre" id="float-input" type="text" pInputText> 
         <label for="float-input">Nombre del producto</label>
-      </span><br>
+      </span><br> 
           
       <span class="ui-float-label">
         <p-spinner [(ngModel)]="producto.precio" id="float-spinner" [min]="0" [step]="0.5"></p-spinner>
@@ -29,11 +29,21 @@
     </div>
 
     <div class="ui-g-12 ui-md-6 ui-lg-6">
-        <p-dropdown [options]="categorias" [(ngModel)]="selectedP" placeholder="Selecciona una categoria" optionLabel="categoria"></p-dropdown>
-        <p-dropdown [options]="cars" [(ngModel)]="selected" placeholder="Selecciona una categoria" optionLabel="empresa"></p-dropdown>
+        <p-dropdown *ngIf="categorias" [options]="categorias" optionLabel="categoria"
+         [(ngModel)]="selectedCategoria" placeholder="Selecciona una categoria" ></p-dropdown>
+    </div>
+    
+  </div>
+
+  <div class="ui-g">
+    <div class="ui-g-12 ui-md-12 ui-lg-12">
+      <p-button (click)="addProducto()" label="Add producto"></p-button>
     </div>
   </div>
+  
 </div>
+
+
 
 <!--
   nombre: <input [(ngModel)]="producto.nombre" placeholder="nombre del producto" type="text"><br>

@@ -1,9 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import '~primeicons/primeicons.css';
-@import '~primeng/resources/themes/nova-light/theme.css';
+@import '~primeng/resources/themes/nova-dark/theme.css';
 @import '~primeng/resources/primeng.min.css';
 
 
-tr:hover {background-color: #e4e2e2 !important;}
+tr:hover {
+    background-color: rgb(228, 226, 226) !important;
+    font-weight: bolder;
+}
+
+body{
+    margin: 0;
+}
+
+.marginComponent {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
 

@@ -4,11 +4,11 @@ export class Producto{
     nombre:string;
     precio:number;
     descripcion:string;
-    fechaAlta:string;
+    fechaAlta:Date;
     descatalogado:boolean;
     categoria:string;
 
-    constructor(codigo?:number, nombre?:string, precio?:number, descripcion?:string, fechaAlta?:string, descatalogado?:boolean,categoria?: string){
+    constructor(codigo?:number, nombre?:string, precio?:number, descripcion?:string, fechaAlta?:Date, descatalogado?:boolean,categoria?: string){
 
         this.codigo = codigo;
         this.nombre = nombre;

@@ -1,6 +1,49 @@
 <h2>Editar Producto {{editedProducto.codigo}}</h2>
 
-nombre: <input [(ngModel)]="editedProducto.nombre" name="nombre" type="text"><br>
+<div *ngIf="editedProducto" class="ui-fluid">
+  <div class="ui-g">
+
+    <div class="ui-g-12 ui-md-6 ui-lg-6">
+      <span class="ui-float-label">
+        <input [(ngModel)]="editedProducto.nombre" id="float-input" type="text" pInputText> 
+        <label for="float-input">Nombre del producto</label>
+      </span><br>
+          
+      <span class="ui-float-label">
+        <p-spinner [(ngModel)]="editedProducto.precio" id="float-spinner" [min]="0" [step]="0.5"></p-spinner>
+        <label for="float-spinner">Precio del producto</label>
+      </span><br>
+        
+      <span class="ui-float-label">
+        <input [(ngModel)]="editedProducto.descripcion" id="float-input" type="text" pInputText> 
+        <label for="float-input">Descripcion del producto</label>
+      </span>
+    </div>
+
+    <div class="ui-g-6 ui-md-3 ui-lg-3">
+      <span class="ui-float-label">
+        <p-calendar [(ngModel)]="editedProducto.fechaAlta" id="float-calendar" readonlyInput= "false" dateFormat="dd/mm/yy"></p-calendar>
+        <label for="float-calendar">Seleccione fecha</label>
+      </span> <br>
+      Descatalogado: <p-checkbox [(ngModel)]="editedProducto.descatalogado" binary="true"></p-checkbox>
+    </div>
+
+    <div class="ui-g-12 ui-md-6 ui-lg-6">
+        <p-dropdown *ngIf="categorias" [options]="categorias" optionLabel="categoria"
+         [(ngModel)]="selectedCategoria" placeholder="Selecciona una categoria" ></p-dropdown>
+    </div>
+    
+  </div>
+
+  <div class="ui-g">
+    <div class="ui-g-12 ui-md-12 ui-lg-12">
+      <p-button (click)="editProducto()" label="Edit producto"></p-button>
+    </div>
+  </div>
+  
+</div>
+
+<!--nombre: <input [(ngModel)]="editedProducto.nombre" name="nombre" type="text"><br>
 precio: <input [(ngModel)]="editedProducto.precio" name="precio" type="number"  min="0"><br>
 descripcion: <input [(ngModel)]="editedProducto.descripcion" name="desc" type="text"><br>
 fecha alta: <input [(ngModel)]="editedProducto.fechaAlta" name="fecha" type="date"><br>
@@ -10,4 +53,4 @@ categoria: <select [(ngModel)]="editedProducto.categoria" name="categorias" >
 </select>
 <br><br>
 
-<button (click)="editProducto()"> Edit producto </button>
+<button (click)="editProducto()"> Edit producto </button>-->
